@@ -28,13 +28,13 @@
 
 // this is to avoid depending on windows.h etc.
 typedef struct FFMS_WAVEFORMATEX { 
-	uint16_t wFormatTag; 
-	uint16_t nChannels; 
-	uint32_t nSamplesPerSec; 
-	uint32_t nAvgBytesPerSec; 
-	uint16_t nBlockAlign; 
-	uint16_t wBitsPerSample; 
-	uint16_t cbSize; 
+	uint16_t wFormatTag;
+	uint16_t nChannels;
+	uint32_t nSamplesPerSec;
+	uint32_t nAvgBytesPerSec;
+	uint16_t nBlockAlign;
+	uint16_t wBitsPerSample;
+	uint16_t cbSize;
 } FFMS_WAVEFORMATEX;
 
 class Wave64Writer {
