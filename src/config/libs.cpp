@@ -35,6 +35,7 @@ extern "C" {
 #pragma comment(lib, "libmoldname.a")
 #pragma comment(lib, "libmingwex.a")
 #pragma comment(lib, "libz.a")
+#pragma comment(lib, "libbz2.a")
 #pragma comment(lib, "libwsock32.a")
 #else
 #pragma comment(lib, "zlib.lib")

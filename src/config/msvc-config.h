@@ -30,7 +30,13 @@ Certain third-party libraries may require that libav/ffmpeg be built with gcc.
 Define WITH_GCC_LIBAV if the ffmpeg/libav you're linking to was built with gcc.
 */
 
-//#define	WITH_GCC_LIBAV
+#define	WITH_GCC_LIBAV
+
+#if defined(WITH_GCC_LIBAV) && defined(_MSC_VER)
+extern "C" {
+    void __mingw_raise_matherr(int typ, const char* name, double a1, double a2, double rslt) {}
+}
+#endif
 
 /*
 If you want to change what libraries FFmpegSource will be linked to, here is the place to do it.

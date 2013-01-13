@@ -243,12 +243,22 @@ void FlushBuffers(AVCodecContext *CodecContext);
 namespace optdetail {
 	template<typename T>
 	T get_av_opt(void *v, const char *name) {
-		return static_cast<T>(av_get_int(v, name, 0));
+        int64_t val;
+        if( !av_opt_get_int(v, name, 0, &val) ) {
+            return static_cast<T>( val );
+        } else {
+            return static_cast<T>( NULL );
+        }
 	}
 
 	template<>
 	inline double get_av_opt<double>(void *v, const char *name) {
-		return av_get_double(v, name, 0);
+        double gotten_value;
+		if( !av_opt_get_double(v, name, 0, &gotten_value) ) {
+            return gotten_value;
+        } else {
+            return NULL;
+        }
 	}
 
 	template<typename T>
